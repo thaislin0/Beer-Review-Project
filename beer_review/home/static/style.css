@@ -1,0 +1,93 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+.app {
+    background-color: white;
+    display: grid;
+    grid-template-areas: 
+    "cabecalho"
+    "conteudo"
+    "rodape";
+    grid-template-columns: auto;
+    grid-template-rows: auto 78vh 50px;
+}
+
+.cabecalho {
+    grid-area: cabecalho;
+}
+
+.rodape {
+    grid-area: rodape;
+}
+
+.search {
+    float: right;
+}
+
+.conteudo {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-area: conteudo;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.home__banner {
+    background-image: url("banner.png");
+    background-size: cover;
+    background-position: top;
+    grid-column: 2/5;
+    grid-row: 1/5;
+}
+
+.home__text {
+    padding: 10px;
+    text-align: justify;
+    grid-column: 1/5;
+    grid-row: 1/5;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.conteudo-review {
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-area: conteudo;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 33.33%  33.33% 33.33%;
+}
+
+.w3-container-review {
+    grid-column: 1/5;
+    grid-row: 1;
+}
+
+.home__banner-review {
+    background-image: url("beer.jpg");
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    grid-column: 4/5;
+    grid-row: 1/5;
+}
+
+.review.w3-card-4 {
+    grid-column: 1/5;
+    grid-row: 5;
+}
+
+.conteudo-catalogo {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-rows: auto;
+    row-gap: 10px;
+    padding: 10px;
+}
+

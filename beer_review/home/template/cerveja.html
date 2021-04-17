@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for cervejas in cervejas %}
+
+<h1>{{ cervejas.title }}</h1>
+
+<p>{{ cervejas.description }}</p>
+
+{% endfor %}
+
+    
+{% endblock %}

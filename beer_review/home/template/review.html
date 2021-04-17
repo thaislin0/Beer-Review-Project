@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="conteudo-review">
+
+    <div class="home__banner-review w3-display-container w3-opacity w3-hover-opacity-off">
+    </div>
+
+    <div class="w3-container-review" style="width: 900px;">
+        <form action="*" method="POST" autocomplete="on" enctype="text/json" class="w3-container w3-padding">
+            <fieldset>
+                <div class="w3-row-padding">
+                    <div class="w3-third">
+                        <label for="nome">Nome da cerveja</label>
+                        <input id="nome" name="nome" class="w3-input" type="text">
+                    </div>
+                    <div class="w3-third">
+                        <label for="origem">Origem da cerveja</label>
+                        <input id="origem" name="origem" class="w3-input" type="text">
+                    </div>
+                    <div class="w3-third">
+                        <label for="quantidade">Quantidade de álcool</label>
+                        <input type="number" id="quantidade" class="w3-input" name="quantidade">
+                    </div>
+                </div>
+                <br>
+                <div class="w3-container">
+                    <label for="familia">Família da cerveja</label>
+                    <select id="familia" class="w3-select" name="familia">
+                        <option value="" disabled selected>Escolha a família</option>
+                        <option value="lager">Lager</option>
+                        <option value="ale">Ale</option>
+                        <option value="espontaneas">Espontâneas</option>
+                    </select>
+                </div>
+                <br>
+                <div class="w3-container">
+                    <label>Tipo da cerveja</label>
+                    <select id="tipo" class="w3-select" name="tipo">
+                        <option value="" disabled selected>Escolha o tipo</option>
+                        <option value="pilsen">Pilsen</option>
+                        <option value="bock">Bock</option>
+                        <option value="witbier">Witbier</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-floating w3-container">
+                    <textarea class="form-control" placeholder="Descrição" id="floatingTextarea2"
+                              style="height: 80px"></textarea>
+                    <label class="w3-margin-left" for="floatingTextarea2">Descrição</label>
+                </div>
+                <br>
+                <div class="mb-3 w3-container">
+                    <label for="formFile" class="form-label">Envie uma foto</label>
+                    <input class="form-control" type="file" id="formFile">
+                </div>
+                <button class="w3-button w3-block w3-amber w3-hover-black" type="button"
+                        onclick="alert('Review enviada com sucesso')">Enviar</button>
+
+
+
+            </fieldset>
+        </form>
+
+    </div>
+    </div>
+
+</main>
+
+{% endblock %}
