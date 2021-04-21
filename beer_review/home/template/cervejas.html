@@ -2,13 +2,37 @@
 {% load static %}
 {% block content %}
 
+<main class="cerveja">
+    <div class="w3-container w3-padding-64">
+        <div class="w3-row">
+            <div class="w3-col" style="width:30%">
+                <img src="{% static 'logo.png' %}" width="350px" height="400px" class="w3-round" alt="Norway">
+            </div>
+            <div class="w3-col" style="width:60%; height: 400px;">
+                <div class="w3-card-4">
 
+                    <header class="w3-container w3-amber w3-leftbar w3-rightbar w3-border-black">
+                      <h1><b>{{ cervejas.title }}</b></h1>
+                    </header><br>
+                    
+                    <div class="w3-container">
+                      <p class="w3-monospace"><b>Origem da cerveja:</b> {{ cervejas.Origem }}</p>
+                      <p class="w3-monospace"><b>Quantidade de álcool:</b> {{ cervejas.Alcool }}</p>
+                      <p class="w3-monospace"><b>Família da cerveja:</b> {{ cervejas.Familia }}</p>
+                      <p class="w3-monospace"><b>Tipo de cerveja:</b> {{ cervejas.tipo }}</p>
+                      <p class="w3-monospace"><b>Descrição:</b> {{ cervejas.description }}</p>
 
-
-
-
-
-
-
+  
+                    </div>
+                    <br>
+                    <footer class="w3-panel w3-leftbar w3-rightbar w3-border-black w3-amber">
+                      <br><h5><b>Nota: </b> {{ cervejas.nota }}</h5>
+                    </footer>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+</main>
 
 {% endblock %}

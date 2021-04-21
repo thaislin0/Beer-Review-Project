@@ -12,6 +12,7 @@
     grid-template-rows: auto 78vh 50px;
 }
 
+
 .cabecalho {
     grid-area: cabecalho;
 }
