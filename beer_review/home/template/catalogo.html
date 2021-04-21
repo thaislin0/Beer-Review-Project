@@ -9,10 +9,10 @@
         <div class="w3-quarter">
             <div class="w3-display-container">
                 <img src="{% static 'logo.png' %}" alt="Sandwich" style="width:90%">
-                <div class="w3-display-topright w3-container"><a href="{% url 'cerveja' %}"><button
+                <div class="w3-display-topright w3-container"><a href="{% url 'home:cervejas' cervejas.id %}"><button
                         class="w3-button w3-block w3-black">+</button></a></div>
             </div>
-            <h3>{{ cervejas.id }}</h3>
+            <a href="{% url 'home:cervejas' cervejas.id %}"><h3 class="w3-text-amber">{{ cervejas.title }}</h3></a>
             <p>{{ cervejas.description }}</p>
 
         </div>

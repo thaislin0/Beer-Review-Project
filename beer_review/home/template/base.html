@@ -22,8 +22,8 @@
     <header class="cabecalho">
         <div class="w3-card w3-black w3-padding">
             <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Início</a>
-            <a href="{% url 'review' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Envie sua review</a>
-            <a href="{% url 'catalogo' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Catálogo</a>
+            <a href="{% url 'home:review' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Envie sua review</a>
+            <a href="{% url 'home:catalogo' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Catálogo</a>
             <div class="search">
                 <form class="d-flex">
                     <input id="nome" name="nome" class="w3-input" type="search" style="width: 100%; height: auto;">

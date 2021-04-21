@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Cervejas
 
 
@@ -15,6 +15,6 @@ def catalogo(request):
     return render(request, 'catalogo.html', {'cervejas': cervejas})
 
 
-def cerveja(request):
-    cervejas = Cervejas.objects.all()
-    return render(request, 'cerveja.html', {'cervejas': cervejas})
+def cervejas(request, cervejas_id):
+    cervejas = get_object_or_404(Cervejas, pk=cervejas_id)
+    return render(request, 'cervejas.html', {'cervejas': cervejas})
