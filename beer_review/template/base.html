@@ -21,16 +21,18 @@
 
 <body class="app">
     <header class="cabecalho">
-        <div class="w3-card w3-black w3-padding w3-mobile">
+        <div class="w3-bar w3-black w3-padding">
             <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Início</a>
-            <a href="{% url 'home:review' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Envie sua review</a>
             <a href="{% url 'home:catalogo' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Catálogo</a>
-            <div class="col-2 w3-right">
-                <form action="{% url 'home:buscar' %}" class="d-flex">
-                    <input type="text" name="buscar" placeholder=Buscar></input>
-                    <button type="submit" class="w3-button w3-amber"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
+            <a href="{% url 'usuarios:cadastro' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Cadastro</a>
+            <a href="{% url 'usuarios:login' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Login</a>
+            <form action="{% url 'home:buscar' %}" class="d-flex w3-right w3-mobile">
+                <input type="text" class="w3-input" style="width: 100%;" name="buscar" placeholder=Buscar><button
+                        type="submit" class="w3-button w3-mobile w3-hover-amber"><i
+                       class="fa fa-search"></i></button></input>
+
+            </form>
+
         </div>
     </header>
 
