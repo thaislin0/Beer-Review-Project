@@ -5,6 +5,7 @@
 <main class="conteudo-catalogo">
 
     <div class="w3-row-padding w3-padding-16 w3-center">
+        {% if cervejas %}
         {% for cervejas in cervejas %}
         <div class="w3-quarter">
             <div class="w3-display-container">
@@ -23,6 +24,12 @@
 
         </div>
         {% endfor %}
+        {% else %}
+        <div class="w3-row">
+            <h1>Cerveja não encontrada</h1>
+        </div>
+        {% endif %}
+
     </div>
 
     <div class="w3-center">

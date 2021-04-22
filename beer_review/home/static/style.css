@@ -11,7 +11,10 @@
     grid-template-columns: auto;
     grid-template-rows: auto 78vh 50px;
 }
-
+#imagemcerveja {
+    width: 350px!important;
+    height: 200px!important;
+}
 
 .cabecalho {
     grid-area: cabecalho;

@@ -5,10 +5,14 @@
 <main class="cerveja">
     <div class="w3-container w3-padding-64">
         <div class="w3-row">
-            <div class="w3-col" style="width:30%">
-                <img src="{% static 'logo.png' %}" width="350px" height="400px" class="w3-round" alt="Norway">
+            <div class="w3-col" style="width:30%;height: 370px;">
+              {% if cervejas.image %}
+              <img id="imagemcerveja" class="w3-container w3-center" src="{{ cervejas.image.url }}" alt="Foto de uma cerveja" style="width:85%; height: 100%;">
+              {% else %}
+              <img id="imagemcerveja" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:300px;height: 100%;">
+              {% endif %}
             </div>
-            <div class="w3-col" style="width:60%; height: 400px;">
+            <div class="w3-col" style="width:60%;">
                 <div class="w3-card-4">
 
                     <header class="w3-container w3-amber w3-leftbar w3-rightbar w3-border-black">
@@ -25,7 +29,7 @@
 
   
                     </div>
-                    <br>
+                    
                     <footer class="w3-panel w3-leftbar w3-rightbar w3-border-black w3-amber">
                       <br><h5><b>Nota: </b> {{ cervejas.nota }}</h5>
                     </footer>
