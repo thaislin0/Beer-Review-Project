@@ -5,20 +5,23 @@
 <div class="w3-container w3-border w3-cell w3-cell-middle">
     <br>
 
-    <form class="w3-center">
+    <form action="{% url 'usuarios:login' %}" method="POST" class="w3-center">
+        {% csrf_token %}
         <h2>Login</h2>
         <br>
-        <label>Email</label>
-        <input class="w3-input" style="width: 50%; margin-left: 25%;" type="email">
+        <label for="email"><b>Email</b></label>
+        <input class="w3-input" style="width: 50%; margin-left: 25%;" placeholder="Digite seu email" name="email" type="email" required>
 
-        <label>Senha</label>
-        <input class="w3-input" style="width: 50%; margin-left: 25%;" type="password">
+        <label for="password"><b>Senha</b></label>
+        <input class="w3-input" style="width: 50%; margin-left: 25%;" placeholder="Digite sua senha" name="password" type="password" required>
         <br>
         <button class="w3-button w3-green w3-half" style="width: 50%; margin-left: 25%;">Entrar</button>
     </form>
     <br><br>
-    <a href="{% url 'usuarios:cadastro' %}" target="_blank"><button class="w3-button w3-amber w3-half" style="width: 50%; margin-left: 25%;">Não possui uma conta? Cadastrar</button></a>
+    <a href="{% url 'usuarios:cadastro' %}"><button class="w3-button w3-amber w3-half" style="width: 50%; margin-left: 25%;">Não possui uma conta? Cadastrar</button></a>
 
 </div>
+
+   
 
 {% endblock %}

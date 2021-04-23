@@ -6,10 +6,6 @@ def home(request):
     return render(request, 'home.html')
 
 
-def review(request):
-    return render(request, 'review.html')
-
-
 def catalogo(request):
     cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
     return render(request, 'catalogo.html', {'cervejas': cervejas})

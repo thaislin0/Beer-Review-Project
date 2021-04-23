@@ -3,10 +3,10 @@ from .models import Cervejas
 
 
 class ListandoCervejas(admin.ModelAdmin):
-    list_display = ('id', 'title', 'Origem', 'Tipo', 'Alcool', 'Familia', 'publicada')
-    list_display_links = ('id', 'title',)
-    search_fields = ('id', 'title', 'Origem', 'Tipo', 'Alcool', 'Familia')
-    list_filter = ('id', 'title', 'Origem', 'Tipo', 'Alcool', 'Familia')
+    list_display = ('id', 'nome_cerveja', 'origem_cerveja', 'tipo_cerveja', 'quantidade_alcool', 'familia_cerveja', 'publicada')
+    list_display_links = ('id', 'nome_cerveja',)
+    search_fields = ('id', 'nome_cerveja', 'origem_cerveja', 'tipo_cerveja', 'quantidade_alcool', 'familia_cerveja')
+    list_filter = ('id', 'nome_cerveja', 'origem_cerveja', 'tipo_cerveja', 'quantidade_alcool', 'familia_cerveja')
     list_editable = ('publicada',)
     list_per_page = 10
 
