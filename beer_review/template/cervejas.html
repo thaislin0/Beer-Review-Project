@@ -6,7 +6,7 @@
     <div class="w3-container w3-padding-64">
         <div class="w3-row">
             <div class="w3-col" style="width:30%;height: 370px;">
-              {% if cervejas.image %}
+              {% if cervejas.foto_cerveja %}
               <img id="imagemcerveja" class="w3-container w3-center" src="{{ cervejas.image.url }}" alt="Foto de uma cerveja" style="width:85%; height: 100%;">
               {% else %}
               <img id="imagemcerveja" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:300px;height: 100%;">
@@ -16,15 +16,15 @@
                 <div class="w3-card-4">
 
                     <header class="w3-container w3-amber w3-leftbar w3-rightbar w3-border-black">
-                      <h1><b>{{ cervejas.title }}</b></h1>
+                      <h1><b>{{ cervejas.nome_cerveja }}</b></h1>
                     </header><br>
                     
                     <div class="w3-container">
-                      <p class="w3-monospace"><b>Origem da cerveja:</b> {{ cervejas.Origem }}</p>
-                      <p class="w3-monospace"><b>Quantidade de álcool:</b> {{ cervejas.Alcool }}</p>
-                      <p class="w3-monospace"><b>Família da cerveja:</b> {{ cervejas.Familia }}</p>
-                      <p class="w3-monospace"><b>Tipo de cerveja:</b> {{ cervejas.tipo }}</p>
-                      <p class="w3-monospace"><b>Descrição:</b> {{ cervejas.description }}</p>
+                      <p class="w3-monospace"><b>Origem da cerveja:</b> {{ cervejas.origem_cerveja }}</p>
+                      <p class="w3-monospace"><b>Quantidade de álcool:</b> {{ cervejas.quantidade_alcool }}</p>
+                      <p class="w3-monospace"><b>Família da cerveja:</b> {{ cervejas.familia_cerveja }}</p>
+                      <p class="w3-monospace"><b>Tipo de cerveja:</b> {{ cervejas.tipo_cerveja }}</p>
+                      <p class="w3-monospace"><b>Descrição:</b> {{ cervejas.descricao_cerveja }}</p>
                       <p class="w3-monospace"><b>Enviado por:</b> {{ cervejas.pessoa }}</p>
 
   

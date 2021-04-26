@@ -22,11 +22,13 @@
 <body class="app">
     <header class="cabecalho">
         <div class="w3-bar w3-black w3-padding">
-            <a href="{% url 'usuarios:dashboard' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Início</a>
-            <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Minhas cervejas</a>
-            <a href="{% url 'usuarios:review' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Enviar review</a>
-            <a href="{% url 'home:home' %}" class="w3-bar-item w3-button w3-mobile w3-red w3-hover-amber w3-right">Sair</a>
-                        <form action="{% url 'home:buscar' %}" class="d-flex w3-right w3-mobile">
+            <a href="{% url 'usuarios:catalogo' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Catálogo</a>
+            <a href="{% url 'usuarios:dashboard' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Minhas cervejas</a>
+            <a href="{% url 'usuarios:review' %}" class="w3-bar-item w3-button w3-mobile w3-hover-amber">Enviar
+                review</a>
+            <a href="{% url 'home:home' %}"
+               class="w3-bar-item w3-button w3-mobile w3-red w3-hover-amber w3-right">Sair</a>
+            <form action="{% url 'home:buscar' %}" class="d-flex w3-right w3-mobile">
                 <input type="text" class="w3-input" style="width: 100%;" name="buscar" placeholder=Buscar><button
                         type="submit" class="w3-button w3-mobile w3-hover-amber"><i
                        class="fa fa-search"></i></button></input>

@@ -3,8 +3,9 @@
 {% block content %}
 
 <div class="w3-container w3-card-4"><br>
-    <div class="w3-container-review w3-mobile" style="width: 900px;">
+     <div class="w3-container-review w3-mobile" style="width: 900px;">
         <div class="w3-container w3-padding">
+            {% include 'partials/alertas.html' %}
             <form action="{% url 'usuarios:cadastro' %}" method="POST">
                 {% csrf_token %}
                 <div class="w3-mobile w3-row-padding">

@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 from home.models import Cervejas
+
+def catalogo(request):
+    cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
+    return render(request, 'usuarios/catalogo.html', {'cervejas': cervejas})
 
 
 def cadastro(request):
@@ -10,21 +14,24 @@ def cadastro(request):
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        if not nome.strip():
-            print('O campo nome não pode ficar em branco')
+        if campo_vazio(nome):
+            messages.error(request, 'O campo nome não pode ficar em branco')
             return redirect('usuarios:cadastro')
-        if not email.strip():
-            print('O campo email não pode ficar em branco')
+        if campo_vazio(email):
+            messages.error(request, 'O campo email não pode ficar em branco')
             return redirect('usuarios:cadastro')
         if password != password2:
-            print('As senhas devem ser iguais')
+            messages.error(request, 'As senhas devem ser iguais')
             return redirect('usuarios:cadastro')
         if User.objects.filter(email=email).exists():
-            print('Usário já cadastrado')
+            messages.error(request, 'Usário já cadastrado')
+            return redirect('usuarios:cadastro')
+        if User.objects.filter(username=nome).exists():
+            messages.error(request, 'Usário já cadastrado')
             return redirect('usuarios:cadastro')
         user = User.objects.create_user(username=nome, email=email, password=password)
         user.save()
-        print('Usuário cadastrado com sucesso')
+        messages.success(request, 'Cadastro realizado com sucesso')
         return redirect('usuarios:login')
     else:
         return render(request, 'usuarios/cadastro.html')
@@ -34,10 +41,9 @@ def login(request):
     if request.method == 'POST':
         email = request.POST['email']
         password = request.POST['password']
-        if email == "" or password == "":
-            print('Os campos email e senha não podem ficar em branco')
+        if campo_vazio(email) or campo_vazio(password):
+            messages.error(request, 'Os campos email e senha não podem ficar em branco')
             return redirect('login')
-        print(email, password)
         if User.objects.filter(email=email).exists():
             nome = User.objects.filter(email=email).values_list('username', flat=True).get()
             user = auth.authenticate(request, username=nome, password=password)
@@ -51,7 +57,8 @@ def login(request):
 def dashboard(request):
     if request.user.is_authenticated:
         id = request.user.id
-        return render(request, 'usuarios/dashboard.html')
+        cervejas = Cervejas.objects.order_by('-date_public').filter(pessoa=id)
+        return render(request, 'usuarios/dashboard.html', {'cervejas': cervejas})
     else:
         return redirect('usuarios:login')
 
@@ -77,3 +84,6 @@ def review(request):
         return redirect('usuarios:dashboard')
     else:
         return render(request, 'usuarios/review.html')
+
+def campo_vazio(campo):
+    return not campo.strip()

@@ -9,7 +9,7 @@
         {% for cervejas in cervejas %}
         <div class="w3-quarter">
             <div class="w3-display-container">
-                {% if cervejas.image %}
+                {% if cervejas.foto_cerveja %}
                 <img id="imagemcatalogo" src="{{ cervejas.image.url }}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
                 {% else %}
                 <img id="imagemcatalogo" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
@@ -18,9 +18,9 @@
                                 class="w3-button w3-block w3-black">+</button></a></div>
             </div>
             <a href="{% url 'home:cervejas' cervejas.id %}">
-                <h3 class="w3-text-amber">{{ cervejas.title }}</h3>
+                <h3 class="w3-text-amber">{{ cervejas.nome_cerveja }}</h3>
             </a>
-            <p>{{ cervejas.description|truncatechars:100 }}</p>
+            <p>{{ cervejas.descricao_cerveja|truncatechars:100 }}</p>
 
         </div>
         {% endfor %}

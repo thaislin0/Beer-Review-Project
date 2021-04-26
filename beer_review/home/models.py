@@ -17,4 +17,4 @@ class Cervejas(models.Model):
     date_public = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return self.title
+        return self.nome_cerveja
