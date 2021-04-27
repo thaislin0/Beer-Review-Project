@@ -25,7 +25,7 @@ SECRET_KEY = '2_6*s^v@lo@ocmkuc&3xhyq^953=w0h^sbkhq-_8&yl&9-nvnc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [thaislin0.pythonanywhere.com]
+ALLOWED_HOSTS = ['thaislin0.pythonanywhere.com']
 
 
 # Application definition
