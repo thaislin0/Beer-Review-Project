@@ -61,11 +61,11 @@ def login(request):
 
 
 def dashboard(request):
-    cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
-    paginator = Paginator(cervejas, 4)
-    page = request.GET.get('page')
-    cervejas_pagina = paginator.get_page(page)
     if request.user.is_authenticated:
+        cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
+        paginator = Paginator(cervejas, 4)
+        page = request.GET.get('page')
+        cervejas_pagina = paginator.get_page(page)
         id = request.user.id
         cervejas = Cervejas.objects.order_by('-date_public').filter(pessoa=id)
         return render(request, 'usuarios/dashboard.html', {'cervejas': cervejas_pagina})
