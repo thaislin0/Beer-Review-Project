@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from home.models import Cervejas
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def catalogo(request):
     cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
