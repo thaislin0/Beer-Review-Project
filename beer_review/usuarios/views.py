@@ -51,6 +51,8 @@ def login(request):
                 auth.login(request, user)
                 print('Login realizado com sucesso')
                 return redirect('usuarios:dashboard')
+            else:
+                messages.error(request, 'Você ainda não criou uma conta.')
     return render(request, 'usuarios/login.html')
 
 
@@ -84,6 +86,36 @@ def review(request):
         return redirect('usuarios:dashboard')
     else:
         return render(request, 'usuarios/review.html')
+
+
+def deleta_cerveja(request, cervejas_id):
+    cervejas = get_object_or_404(Cervejas, pk=cervejas_id)
+    cervejas.delete()
+    return redirect('usuarios:dashboard')
+
+
+def edita_cerveja(request, cervejas_id):
+    cervejas = get_object_or_404(Cervejas, pk=cervejas_id)
+    cervejas_a_editar = {'cervejas': cervejas}
+    return render(request, 'usuarios/edita_cerveja.html', cervejas_a_editar)
+
+
+def atualiza(request):
+    if request.method == 'POST':
+        cervejas_id = request.POST['cervejas_id']
+        r = Cervejas.objects.get(pk=cervejas_id)
+        r.nome_cerveja  = request.POST['nome_cerveja']
+        r.origem_cerveja  = request.POST['origem_cerveja']
+        r.quantidade_alcool  = request.POST['quantidade_alcool']
+        r.familia_cerveja  = request.POST['familia_cerveja']
+        r.descricao_cerveja  = request.POST['descricao_cerveja']
+        r.tipo_cerveja  = request.POST['tipo_cerveja']
+        r.nota_cerveja   = request.POST['nota_cerveja']
+        if 'foto_cerveja' in request.FILES:
+            r.foto_cerveja  = request.FILES['foto_cerveja']
+        r.save()
+        return redirect('usuarios:dashboard')
+
 
 def campo_vazio(campo):
     return not campo.strip()

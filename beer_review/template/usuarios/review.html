@@ -2,8 +2,17 @@
 {% load static %}
 {% block content %}
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading">
+                <h3></h3><br>
+            </div>
+        </div>
+    </div>
+
 <div class="w3-container w3-card-4"><br>
-    <div class="w3-container-review w3-mobile" style="width: 900px;">
+    <div class="w3-container-review w3-mobile" style="width: 1000px;">
         <div class="w3-container w3-padding">
             <form action="{% url 'usuarios:review' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -44,15 +53,13 @@
                     
 
                     <div class="col-12 text-center">
-                        <button class="w3-button w3-amber w3-hover-black" type="submit">Enviar review</button>
+                        <button class="w3-button w3-amber w3-hover-black w3-block" type="submit">Enviar review</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
-
 
 
 {% endblock %}

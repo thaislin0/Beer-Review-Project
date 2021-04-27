@@ -9,9 +9,11 @@
         <div class="w3-quarter">
             <div class="w3-display-container">
                 {% if cervejas.foto_cerveja %}
-                <img id="imagemcatalogo" src="{{ cervejas.foto_cerveja.url }}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
+                <img id="imagemcatalogo" src="{{ cervejas.foto_cerveja.url }}" alt="Foto de uma cerveja"
+                     style="width:100%; height: 280px;">
                 {% else %}
-                <img id="imagemcatalogo" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
+                <img id="imagemcatalogo" src="{% static 'beer.jpg' %}" alt="Foto de uma cerveja"
+                     style="width:100%; height: 280px;">
                 {% endif %}
                 <div class="w3-display-topright w3-container"><a href="{% url 'home:cervejas' cervejas.id %}"><button
                                 class="w3-button w3-block w3-black">+</button></a></div>
@@ -25,16 +27,45 @@
         {% endfor %}
     </div>
 
-    <div class="w3-center">
+    <section class="w3-center">
         <div class="w3-bar">
-            <a href="#" class="w3-bar-item w3-button w3-hover-amber">&laquo;</a>
-            <a href="#" class="w3-button w3-hover-amber">1</a>
-            <a href="#" class="w3-button w3-hover-amber">2</a>
-            <a href="#" class="w3-button w3-hover-amber">3</a>
-            <a href="#" class="w3-button w3-hover-amber">4</a>
-            <a href="#" class="w3-button w3-hover-amber">&raquo;</a>
+            {% if cervejas.has_other_pages %}
+            <ul class="pagination">
+                {% if cervejas.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ cervejas.previous_page_number }}" class="w3-bar-item w3-button w3-hover-amber">&laquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="w3-bar-item w3-button w3-hover-amber page-link">&laquo;</a>
+                </li>
+                {% endif %}
+                {% for pagina in cervejas.paginator.page_range %}
+                {% if cervejas.number == pagina %}
+                <li class="page-item active">
+                    <a class="w3-bar-item w3-button w3-hover-amber">{{ pagina }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a href="?page={{pagina}}" class="w3-bar-item w3-button w3-hover-amber">{{pagina}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                {% if cervejas.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ cervejas.next_page_number }}" class="w3-bar-item w3-button w3-hover-amber">&raquo;</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link">&raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% endif %}
         </div>
-    </div>
+    </section>
+
+
 
 
 

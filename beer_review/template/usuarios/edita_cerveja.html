@@ -1,0 +1,67 @@
+{% extends 'usuarios/baseusuarios.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="section-heading">
+                <h3></h3><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-container w3-card-4"><br>
+        <div class="w3-container-review w3-mobile" style="width: 900px;">
+            <div class="w3-container w3-padding">
+                <form action="{% url 'usuarios:atualiza' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" id="cervejas_id" class="form-control" name="cervejas_id" value="{{cervejas.id}}"
+                           hidden>
+                    <div class="w3-row-padding">
+                        <div class="w3-third">
+                            <label for="nome_cerveja"><b>Nome da cerveja</b></label>
+                            <input type="text" id="nome_cerveja" class="form-control" name="nome_cerveja" value="{{ cervejas.nome_cerveja }}" required>
+                        </div>
+                        <div class="w3-third">
+                            <label for="origem_cerveja"><b>Origem da cerveja</b></label>
+                            <input type="text" id="origem_cerveja" class="form-control" name="origem_cerveja" value="{{ cervejas.origem_cerveja }}" required>
+                        </div>
+                        <div class="w3-third">
+                            <label for="familia_cerveja"><b>Família da cerveja</b></label>
+                            <input type="text" id="familia_cerveja" class="form-control" name="familia_cerveja" value="{{ cervejas.familia_cerveja }}" required><br><br>
+                        </div>
+                        <div class="w3-third">
+                            <label for="tipo_cerveja"><b>Tipo da cerveja</b></label>
+                            <input type="text" id="tipo_cerveja" class="form-control" name="tipo_cerveja" value="{{ cervejas.tipo_cerveja }}" required>
+                        </div>
+                        <div class="w3-third">
+                            <label for="descricao_cerveja"><b>Descrição da cerveja</b></label>
+                            <input type="text" id="descricao_cerveja" class="form-control" name="descricao_cerveja" value="{{ cervejas.descricao_cerveja }}" required>
+                        </div>
+                        <div class="w3-third">
+                            <label for="nota_cerveja"><b>Nota da cerveja</b></label>
+                            <input type="number" id="nota_cerveja" class="form-control" name="nota_cerveja" value="{{ cervejas.nota_cerveja }}" required><br><br>
+                        </div>
+                        <div class="w3-half">
+                            <label for="quantidade_alcool"><b>Quantidade de álcool</b></label>
+                            <input type="number" id="quantidade_alcool" class="form-control" name="quantidade_alcool" value="{{ cervejas.nome_cerveja }}" required>                        </div>
+                        <div class="w3-half">
+                            <label for="file"><b>Foto da cerveja</b></label>
+                            <input type="file" id="file" class="form-control" name="foto_cerveja " value="{{ cervejas.foto_cerveja }}" required>                            <br>
+                        </div>
+
+
+                        <div class="col-12 text-center">
+                            <button class="w3-button w3-amber w3-hover-black" type="submit">Enviar review</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    {% endblock %}

@@ -11,7 +11,7 @@
                 {% if cervejas.foto_cerveja %}
                 <img id="imagemcatalogo" src="{{ cervejas.foto_cerveja.url }}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
                 {% else %}
-                <img id="imagemcatalogo" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
+                <img id="imagemcatalogo" src="{% static 'beer.jpg' %}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
                 {% endif %}
                 <div class="w3-display-topright w3-container"><a href="{% url 'home:cervejas' cervejas.id %}"><button
                                 class="w3-button w3-block w3-black">+</button></a></div>
@@ -20,7 +20,8 @@
                 <h3 class="w3-text-amber">{{ cervejas.nome_cerveja }}</h3>
             </a>
             <p>{{ cervejas.descricao_cerveja|truncatechars:100 }}</p>
-
+            <a href="{% url 'usuarios:edita_cerveja' cervejas.id %}" type="button" class="w3-button w3-amber">Editar</a>
+            <a href="{% url 'usuarios:deleta_cerveja' cervejas.id %}" type="button" class="w3-button w3-red">Deletar</a>
         </div>
         {% endfor %}
     </div>

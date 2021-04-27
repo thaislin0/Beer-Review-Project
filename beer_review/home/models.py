@@ -11,7 +11,7 @@ class Cervejas(models.Model):
     familia_cerveja = models.CharField(max_length=150)
     descricao_cerveja = models.CharField(max_length=150)
     tipo_cerveja = models.CharField(max_length=150, default="", editable=True)
-    foto_cerveja = models.ImageField(blank=True, upload_to='home/images', default='logo.png')
+    foto_cerveja = models.ImageField(upload_to='home/images')
     nota_cerveja = models.IntegerField(default=5)
     publicada = models.BooleanField(default=False)
     date_public = models.DateTimeField(default=datetime.now, blank=True)
