@@ -2,13 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from home.models import Cervejas
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 def catalogo(request):
     cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
     paginator = Paginator(cervejas, 4)
     page = request.GET.get('page')
     cervejas_pagina = paginator.get_page(page)
-    return render(request, 'catalogo.html', {'cervejas': cervejas_pagina})
+    return render(request, 'usuarios/catalogo.html', {'cervejas': cervejas_pagina})
 
 
 def cadastro(request):
@@ -60,14 +62,10 @@ def login(request):
 
 
 def dashboard(request):
-    cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
-    paginator = Paginator(cervejas, 4)
-    page = request.GET.get('page')
-    cervejas_pagina = paginator.get_page(page)
     if request.user.is_authenticated:
         id = request.user.id
         cervejas = Cervejas.objects.order_by('-date_public').filter(pessoa=id)
-        return render(request, 'usuarios/dashboard.html', {'cervejas': cervejas_pagina})
+        return render(request, 'usuarios/dashboard.html', {'cervejas':cervejas})
     else:
         return redirect('usuarios:login')
 

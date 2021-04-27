@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Beer Review</title>
     <link rel="sortcut icon" href="{% static 'logo.png' %}" type="image/x-icon">
-    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'stylebase.css' %}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
@@ -39,15 +39,15 @@
     </header>
 
     {% block content %} {% endblock %}
-    
-    <div class="footer w3-row">
 
-        <header class="w3-col w3-black w3-center w3-padding" style="position: relative;">
+    <div id="footer" class="w3-row">
+
+        <header class="w3-col w3-black w3-center w3-padding">
             <h6>Desenvolvido por Thais Lino</h6>
         </header>
 
 
-        <footer class="w3-col w3-amber w3-center w3-padding" style="position: relative;">
+        <footer class="w3-col w3-amber w3-center w3-padding">
             <h5>Seja o julgador da sua própria cerveja.</h5>
         </footer>
 
