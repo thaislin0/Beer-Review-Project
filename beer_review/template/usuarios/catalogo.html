@@ -1,4 +1,4 @@
-{% extends 'usuarios/baseusuarios.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
@@ -9,9 +9,11 @@
         <div class="w3-quarter">
             <div class="w3-display-container">
                 {% if cervejas.foto_cerveja %}
-                <img id="imagemcatalogo" src="{{ cervejas.foto_cerveja.url }}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
+                <img id="imagemcatalogo" src="{{ cervejas.foto_cerveja.url }}" alt="Foto de uma cerveja"
+                     style="width:100%; height: 280px;">
                 {% else %}
-                <img id="imagemcatalogo" src="{% static 'logo.png' %}" alt="Foto de uma cerveja" style="width:100%; height: 280px;">
+                <img id="imagemcatalogo" src="{% static 'beer.jpg' %}" alt="Foto de uma cerveja"
+                     style="width:100%; height: 280px;">
                 {% endif %}
                 <div class="w3-display-topright w3-container"><a href="{% url 'home:cervejas' cervejas.id %}"><button
                                 class="w3-button w3-block w3-black">+</button></a></div>
@@ -62,6 +64,8 @@
             {% endif %}
         </div>
     </section>
+
+
 
 
 
