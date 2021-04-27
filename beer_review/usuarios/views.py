@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from home.models import Cervejas
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+<<<<<<< HEAD
 
+=======
+>>>>>>> 633e7c8a75c80aae3bcca17edb4837ae3bbd302c
 
 def catalogo(request):
     cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
@@ -63,6 +66,10 @@ def login(request):
 
 def dashboard(request):
     if request.user.is_authenticated:
+        cervejas = Cervejas.objects.order_by('-date_public').filter(publicada=True)
+        paginator = Paginator(cervejas, 4)
+        page = request.GET.get('page')
+        cervejas_pagina = paginator.get_page(page)
         id = request.user.id
         cervejas = Cervejas.objects.order_by('-date_public').filter(pessoa=id)
         return render(request, 'usuarios/dashboard.html', {'cervejas':cervejas})
